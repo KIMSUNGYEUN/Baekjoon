@@ -17,8 +17,25 @@ int main() {
 			cntB = 0;
 			cntW = 0;
 			for (int a = i; a < i + 8; a++) {
-
+				for (int b = j; b < j + 8; b++) {
+					if ((a + b) % 2 == 0) {
+						if (board[a][b] == 'B')
+							cntW++;
+						else
+							cntB++;
+					}
+					else {
+						if (board[a][b] == 'B')
+							cntB++;
+						else
+							cntW++;
+					}
+				}
 			}
+			min = minfinder(min, cntB);
+			min = minfinder(min, cntW);
 		}
 	}
+	printf("%d\n", min);
+	return 0;
 }
