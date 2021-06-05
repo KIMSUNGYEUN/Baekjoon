@@ -1,14 +1,14 @@
 #include <stdio.h>
-int gcd2(int A,int B)
+int f(int A,int B)
 {
     if (B == 0)
         return A;
-    gcd2(B, A%B);
+    f(B, A%B);
 }
 int main()
 {
     int A, B;
     scanf("%d %d", &A, &B);
-    int num = gcd2(A, B);
+    int num = f(A, B);
     printf("%d\n%d", num, A*B / num);
 }
