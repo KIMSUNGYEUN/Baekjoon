@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<algorithm>
+
+int f(int A, int B)
+{
+	if (B == 0)
+		return A;
+	else
+		return f(B, A % B);
+}
+int f2(int A, int B)
+{
+	return  A * B / f(A,B);
+}
+int main()
+{
+	int A, B;
+	int T;
+	scanf("%d\n", &T);
+	for (int i = 0; i < T; i++) {
+		scanf("%d %d", &A, &B);
+		printf("%d\n", f2(A, B));
+	}
+}
