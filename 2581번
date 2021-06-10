@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int main() {
+
+	int M, N;
+	int sum = 0;
+	int min = 10001;
+	scanf("%d %d", &M, &N);
+	if (M == 1)
+		M++;
+	for (; M <= N; M++) {
+		int check = 1;
+		for (int j = 2; j <= M / 2; j++) {
+			if (M % j == 0) {
+				check = 0;
+				break;
+			}
+		}
+		if (check == 1) {
+			if (min > M)
+				min = M;
+			sum += M;
+		}
+	}
+	if (sum == 0)
+		printf("-1\n");
+	else {
+		printf("%d\n%d\n", sum, min);
+	}
+	return 0;
+}
