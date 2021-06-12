@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main() {
+	int N,i,j,min,sum,num;
+	int arr[1000];
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d\n", &arr[i]);
+	}
+	for (i = 0; i < N; i++) {
+		min = 1001;
+		for (j = i; j < N; j++) {
+			if (min > arr[j]) {
+				min = arr[j];
+				sum = j;
+			}
+		}
+		num = arr[i];
+		arr[i] = arr[sum];
+		arr[sum] = num;
+	}
+	for (i = 0; i < N; i++) {
+		printf("%d\n", arr[i]);
+	}
+	return 0;
+}
